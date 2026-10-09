@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#A63A2B">
+
+<!-- SEO -->
+<title>Единство народов — сила России | Южный федеральный округ</title>
+<meta name="description" content="Интерактивный проект о культуре, традициях и событиях народов Южного федерального округа: русские, адыги, калмыки, армяне, греки, ногайцы, казахи, крымские татары.">
+<meta name="keywords" content="ЮФО, народы Юга России, единство народов, культура, традиции, фестивали, адыги, калмыки, казаки, Ростов, Краснодар, Астрахань">
+<meta name="author" content="Проект «Единство народов»">
+<link rel="canonical" href="https://sit-salsk.ru/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Единство народов — сила России | ЮФО">
+<meta property="og:description" content="Культура, традиции и события народов Южного федерального округа. Интерактивная карта, афиша, галерея промыслов.">
+<meta property="og:image" content="media/hero/hero-1.jpg">
+<meta property="og:url" content="https://sit-salsk.ru/">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Иконка -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'><circle cx='17' cy='17' r='8' fill='%23E5A93C'/></svg>">
+
+<!-- Шрифты -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --terra:#A63A2B; --wheat:#E5A93C; --teal:#3B8B88; --ivory:#FDFBF7;
+  --graphite:#2B2D2F; --radius:12px; --shadow:0 6px 18px rgba(43,45,47,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',sans-serif;font-size:16px;color:var(--graphite);background:var(--ivory);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif;color:var(--graphite)}
+h1{font-size:42px;font-weight:700}
+h2{font-size:32px;font-weight:600;margin-bottom:24px}
+h3{font-size:22px;font-weight:700}
+img{max-width:100%;height:auto}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:72px 0}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--terra);color:#fff;padding:12px 20px;z-index:1000;border-radius:0 0 8px 0}
+.skip-link:focus{left:0}
+.ornament{height:14px;margin:0 auto 40px;opacity:.5;background:
+ repeating-linear-gradient(90deg,var(--terra) 0 14px,transparent 14px 28px,var(--wheat) 28px 42px,transparent 42px 56px,var(--teal) 56px 70px,transparent 70px 84px);
+ -webkit-mask:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent);mask:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent)}
+.btn{display:inline-block;padding:14px 28px;border-radius:var(--radius);font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer;border:none;transition:.3s;text-align:center}
+.btn-terra{background:var(--terra);color:#fff}
+.btn-terra:hover,.btn-terra:focus-visible{background:#8c2f22;transform:translateY(-2px)}
+.btn-wheat{background:var(--wheat);color:var(--graphite)}
+.btn-wheat:hover,.btn-wheat:focus-visible{background:#d1942a;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--terra);border:2px solid var(--terra)}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:var(--terra);color:#fff}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--wheat);outline-offset:2px}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:rgba(253,251,247,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(43,45,47,.08)}
+.nav{display:flex;align-items:center;gap:28px;padding:14px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;color:var(--terra);text-decoration:none}
+.nav-links{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.nav-links a{padding:8px 14px;border-radius:var(--radius);text-decoration:none;color:var(--graphite);font-weight:500;font-size:15px;transition:.3s}
+.nav-links a:hover{background:rgba(229,169,60,.18)}
+.nav-links a.active{background:var(--wheat);color:var(--graphite)}
+
+/* HERO */
+.hero{position:relative;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden;border-radius:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;display:flex;align-items:center;justify-content:center}
+.slide.active{opacity:1}
+.slide-1{background:linear-gradient(135deg,#A63A2B 0%,#7c2418 100%)}
+.slide-2{background:linear-gradient(135deg,#3B8B88 0%,#1f5d5b 100%)}
+.slide-3{background:linear-gradient(135deg,#E5A93C 0%,#b57a14 100%)}
+.slide-inner{position:relative;z-index:2;max-width:820px;padding:0 24px}
+.slide-inner blockquote{font-family:'Manrope',sans-serif;font-size:clamp(24px,4.5vw,44px);font-weight:800;line-height:1.25;margin-bottom:32px}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:46px;height:46px;border-radius:50%;border:none;background:rgba(255,255,255,.2);color:#fff;font-size:20px;cursor:pointer;transition:.3s}
+.hero-arrow:hover{background:rgba(255,255,255,.4)}
+.hero-arrow.prev{left:24px}.hero-arrow.next{right:24px}
+.hero-dots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:3}
+.hero-dots button{width:12px;height:12px;border-radius:50%;border:none;background:rgba(255,255,255,.4);cursor:pointer;transition:.3s}
+.hero-dots button.active{background:#fff;transform:scale(1.3)}
+
+/* GRIDS */
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;transition:.3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(43,45,47,.14)}
+.card .ph{height:150px;border-radius:8px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-size:44px}
+.tag{display:inline-block;background:rgba(59,139,136,.14);color:var(--teal);font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.lead{font-size:18px;max-width:760px;color:#4a4d50}
+
+/* TIMELINE */
+.timeline{display:flex;gap:0;margin-top:40px;flex-wrap:wrap}
+.tl-step{flex:1;min-width:200px;position:relative;padding:24px 20px 24px 28px;border-left:3px solid var(--wheat)}
+.tl-step::before{content:'';position:absolute;left:-9px;top:28px;width:15px;height:15px;border-radius:50%;background:var(--terra);border:3px solid var(--ivory)}
+.tl-year{font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:var(--terra)}
+
+/* MAP */
+.map-wrap{display:grid;grid-template-columns:1.6fr 1fr;gap:32px;align-items:center;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:32px}
+#ufoMap{width:100%;height:auto;display:block;background:#fff;border-radius:14px}
+.sea{fill:#BFE2F3}.sea-wave{fill:url(#wave)}
+.nb-c{fill:#CFCFC8;stroke:#8e8e86;stroke-width:1;stroke-dasharray:5 3}
+.nb-ru{fill:#F1EEE4;stroke:#cfcabb;stroke-width:.8}
+.nb-lab{font-family:Inter,sans-serif;font-weight:800;fill:#4b4d50;letter-spacing:.14em}
+.nb-ru-lab{font-family:Inter,sans-serif;font-weight:600;fill:#9b9788}
+.sea-lab{font-family:Inter,sans-serif;font-style:italic;font-weight:600;fill:#2F7FA8}
+.region{stroke:#fff;stroke-width:1.1;stroke-linejoin:round;cursor:pointer;transition:filter .25s;outline:none}
+.region[data-region=crimea]{fill:#84B9E4}.region[data-region=sevastopol]{fill:#117B65}.region[data-region=krasnodar]{fill:#A35D48}
+.region[data-region=adygea]{fill:#5BBD14}.region[data-region=rostov]{fill:#56AC24}.region[data-region=volgograd]{fill:#58A1E5}
+.region[data-region=kalmykia]{fill:#C1823A}.region[data-region=astrakhan]{fill:#059940}
+.region:hover,.region:focus-visible{filter:brightness(1.13) saturate(1.1)}
+.region.sel{stroke:#E5A93C;stroke-width:2.4;filter:drop-shadow(0 1.5px 3px rgba(0,0,0,.5))}
+.hit{fill:transparent;cursor:pointer}
+.region-label{font-family:Inter,sans-serif;font-weight:600;fill:#fff;pointer-events:none;transition:fill .25s}
+.region-label.on{font-weight:800}
+.ext-label{fill:#2B2D2F;pointer-events:auto;cursor:pointer}
+.ext-label.on{fill:#A63A2B}
+.leader{stroke:#117B65;stroke-width:.8;pointer-events:none}.ldot{fill:#117B65}
+.map-hint{font-size:13px;color:#8a8d90;margin-top:14px}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tabs button{padding:8px 16px;border-radius:20px;border:1.5px solid var(--teal);background:transparent;color:var(--teal);font-weight:600;font-size:13px;cursor:pointer;transition:.3s}
+.tabs button.on{background:var(--teal);color:#fff}
+.nation-body{display:none;animation:fade .4s ease}
+.nation-body.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+details.card summary{cursor:pointer;font-family:'Manrope',sans-serif;font-weight:700;font-size:17px;list-style:none;position:relative}
+details.card summary::-webkit-details-marker{display:none}
+details.card summary::before{content:'＋';position:absolute;right:10px;top:10px;z-index:2;width:30px;height:30px;line-height:30px;text-align:center;border-radius:50%;background:#fff;color:var(--terra);font-weight:800;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+details.card[open] summary::before{content:'－'}
+
+/* HERITAGE */
+.media-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:24px}
+video{width:100%;border-radius:var(--radius);background:#000;display:block}
+.playlist button{display:flex;justify-content:space-between;align-items:center;width:100%;padding:14px 18px;margin-bottom:10px;border:none;border-radius:var(--radius);background:#fff;box-shadow:var(--shadow);cursor:pointer;font-family:'Inter',sans-serif;font-size:15px;transition:.3s;text-align:left}
+.playlist button:hover{transform:translateY(-2px)}
+.playlist button.on{background:var(--teal);color:#fff}
+.gal-item{position:relative;overflow:hidden;border-radius:var(--radius);height:220px;cursor:pointer}
+.gal-item .cap{position:absolute;inset:auto 0 0 0;background:rgba(43,45,47,.85);color:#fff;padding:14px;font-size:13px;transform:translateY(100%);transition:.35s}
+.gal-item:hover .cap{transform:translateY(0)}
+.gal-item:hover .ph{transform:scale(1.08)}
+.gal-item .ph{transition:.5s}
+.slider{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;-webkit-overflow-scrolling:touch}
+.slider::-webkit-scrollbar{height:8px}
+.slider::-webkit-scrollbar-thumb{background:var(--wheat);border-radius:4px}
+.slider .card{min-width:260px;scroll-snap-align:start}
+
+/* EVENTS */
+.filters{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px;align-items:end}
+.filters label{font-size:13px;font-weight:600;color:#5a5d60;display:block;margin-bottom:6px}
+.filters select,.filters input[type=date]{padding:10px 14px;border:1.5px solid #d8d2c6;border-radius:var(--radius);background:#fff;font-family:'Inter',sans-serif;font-size:14px;min-width:180px;width:100%}
+.ev-table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.ev-table th{background:var(--terra);color:#fff;font-family:'Manrope',sans-serif;text-align:left;padding:14px 18px;font-size:14px}
+.ev-table td{padding:16px 18px;border-bottom:1px solid #eee8dc;font-size:15px;vertical-align:top}
+.ev-table tr:last-child td{border-bottom:none}
+.ev-table tbody tr{transition:.25s}
+.ev-table tbody tr:hover{background:rgba(229,169,60,.08)}
+.ev-date{font-family:'Manrope',sans-serif;font-weight:800;color:var(--terra);white-space:nowrap}
+.ev-link{color:var(--terra);font-weight:700;text-decoration:none;border-bottom:1px dashed var(--terra);transition:.25s}
+.ev-link:hover{color:var(--graphite);border-bottom-color:var(--wheat);background:rgba(229,169,60,.15)}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(43,45,47,.55);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;overflow-y:auto}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:16px;padding:36px;max-width:460px;width:100%;animation:pop .3s ease;position:relative}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#5a5d60}
+.field input,.field textarea,.field select{width:100%;padding:12px 14px;border:1.5px solid #d8d2c6;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:15px;background:var(--ivory)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(59,139,136,.15)}
+.modal-x{position:absolute;top:12px;right:14px;background:none;border:none;font-size:24px;cursor:pointer;color:#888;line-height:1;padding:6px 10px;border-radius:8px}
+.modal-x:hover{background:#f0ede6;color:var(--terra)}
+/* Honeypot — скрытое поле для ботов */
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+
+/* CONTACTS */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.contact-info p{margin-bottom:14px}
+.contact-info strong{color:var(--terra)}
+.contact-info a{color:var(--teal)}
+.map-iframe{width:100%;height:380px;border:0;border-radius:var(--radius);box-shadow:var(--shadow);margin-top:32px}
+
+/* FOOTER */
+footer{background:var(--graphite);color:#cfd2d4;padding:40px 0;margin-top:40px}
+.foot{display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between}
+.foot a{color:#cfd2d4;text-decoration:none}
+.foot a:hover{color:var(--wheat)}
+.socials{display:flex;gap:12px;align-items:center}
+.socials a{min-width:40px;height:40px;padding:0 14px;border-radius:20px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;transition:.3s;white-space:nowrap;text-align:center;line-height:1}
+.socials a:hover{background:var(--wheat);color:var(--graphite)}
+.socials a.policy{font-size:12px;font-weight:600;padding:0 18px}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--teal);color:#fff;padding:14px 28px;border-radius:30px;font-weight:600;opacity:0;transition:.4s;z-index:300;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* MEDIA */
+.ph{position:relative;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.slide-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(20,20,20,.35),rgba(20,20,20,.6))}
+.video-note{display:none;margin-top:8px;font-size:14px;color:#8a8d90}
+
+/* АДАПТИВНОСТЬ */
+@media(max-width:1024px){
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  h1{font-size:32px}
+  h2{font-size:26px}
+  .grid-2,.grid-3,.map-wrap,.media-grid,.contact-grid{grid-template-columns:1fr}
+  .nav-links{width:100%;margin-left:0;justify-content:center}
+  section{padding:48px 0}
+  .ev-table thead{display:none}
+  .ev-table,.ev-table tbody,.ev-table tr,.ev-table td{display:block;width:100%}
+  .ev-table tr{margin-bottom:16px;border-radius:var(--radius);box-shadow:var(--shadow);background:#fff;padding:12px 4px;border:none}
+  .ev-table td{border:none;padding:8px 18px;text-align:left}
+  .ev-table td::before{content:attr(data-label);display:block;font-size:11px;font-weight:700;color:#8a8d90;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+  .ev-date{font-size:18px}
+}
+@media(max-width:480px){
+  .container{padding:0 16px}
+  h2{font-size:22px}
+  .btn{padding:12px 22px;font-size:14px}
+  .hero-arrow{width:38px;height:38px;font-size:16px}
+  .hero-arrow.prev{left:8px}.hero-arrow.next{right:8px}
+  .nav{gap:10px}
+  .nav-links a{padding:6px 10px;font-size:14px}
+  .card{padding:18px}
+  .modal{padding:24px 20px}
+  .slider .card{min-width:220px}
+  .foot{flex-direction:column;text-align:center;gap:16px}
+  .map-iframe{height:280px}
+}
+
+/* Пользователи с ограничением анимаций */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к основному содержанию</a>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home" aria-label="Единство народов — на главную">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true" focusable="false"><circle cx="17" cy="17" r="8" fill="#E5A93C"/><g stroke="#A63A2B" stroke-width="2.5" stroke-linecap="round"><line x1="17" y1="2" x2="17" y2="7"/><line x1="17" y1="27" x2="17" y2="32"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="27" y1="17" x2="32" y2="17"/><line x1="6" y1="6" x2="10" y2="10"/><line x1="24" y1="24" x2="28" y2="28"/><line x1="28" y1="6" x2="24" y2="10"/><line x1="10" y1="24" x2="6" y2="28"/></g></svg>
+      Единство народов
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Основная навигация">
+      <a href="#home" class="active">Главная</a>
+      <a href="#about">О проекте</a>
+      <a href="#peoples">Народы ЮФО</a>
+      <a href="#heritage">Наследие</a>
+      <a href="#events">Афиша</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-ghost" href="#contacts" style="padding:10px 20px">Обратная связь</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ ГЛАВНАЯ ============ -->
+<section id="home" style="padding-top:0" aria-labelledby="h-home">
+  <h1 class="visually-hidden" id="h-home">Единство народов — сила России</h1>
+  <div class="hero" id="hero" role="region" aria-label="Главные ценности проекта">
+    <div class="slide slide-1 active"><img class="slide-bg" src="media/hero/hero-1.jpg" alt="Дружба народов России" loading="eager" decoding="async" onerror="this.remove()"><div class="slide-shade"></div><div class="slide-inner">
+      <blockquote>«В единстве народов — сила великой России!»</blockquote>
+      <div class="hero-btns"><a class="btn btn-wheat" href="#peoples">Изучить культуру</a><a class="btn btn-ghost" style="color:#fff;border-color:#fff" href="#events">Смотреть афишу</a></div>
+    </div></div>
+    <div class="slide slide-2"><img class="slide-bg" src="media/hero/hero-2.jpg" alt="Национальные костюмы народов России" loading="lazy" decoding="async" onerror="this.remove()"><div class="slide-shade"></div><div class="slide-inner">
+      <blockquote>«Культура каждого народа — это сокровище всей страны»</blockquote>
+      <div class="hero-btns"><a class="btn btn-wheat" href="#heritage">Культурное наследие</a><a class="btn btn-ghost" style="color:#fff;border-color:#fff" href="#about">О проекте</a></div>
+    </div></div>
+    <div class="slide slide-3"><img class="slide-bg" src="media/hero/hero-3.jpg" alt="Юг России" loading="lazy" decoding="async" onerror="this.remove()"><div class="slide-shade"></div><div class="slide-inner">
+      <blockquote>«От Каспия до Чёрного моря — одна семья, одна Россия»</blockquote>
+      <div class="hero-btns"><a class="btn btn-terra" href="#peoples">Народы ЮФО</a><a class="btn btn-ghost" style="color:#fff;border-color:#fff" href="#contacts">Присоединиться</a></div>
+    </div></div>
+    <button class="hero-arrow prev" id="heroPrev" aria-label="Предыдущий слайд">‹</button>
+    <button class="hero-arrow next" id="heroNext" aria-label="Следующий слайд">›</button>
+    <div class="hero-dots" id="heroDots" role="tablist" aria-label="Переключение слайдов"></div>
+  </div>
+
+  <div class="container">
+    <div class="ornament" aria-hidden="true"></div>
+    <h2>О проекте цифрового пространства</h2>
+    <p class="lead">Современный веб-ресурс, созданный для продвижения межнационального согласия, культурного обмена и исторической памяти народов Южного федерального округа. Мы объединяем школьников, студентов, педагогов и национальные общины вокруг общей идеи дружбы и взаимного уважения.</p>
+    <p style="margin-top:20px"><a class="btn btn-terra" href="#about">Подробнее о миссии</a></p>
+    <div class="ornament" style="margin-top:56px" aria-hidden="true"></div>
+    <h2>Интерактивная карта событий ЮФО</h2>
+    <div class="grid grid-3">
+      <article class="card"><div class="ph" style="background:linear-gradient(135deg,#A63A2B,#E5A93C)">📍<img src="media/events/don.jpg" alt="Кинофестиваль «Золотой Саусруко»" loading="lazy" decoding="async" onerror="this.remove()"></div><span class="tag">14 октября · Майкоп</span><h3>Кинофестиваль «Золотой Саусруко»</h3></article>
+      <article class="card"><div class="ph" style="background:linear-gradient(135deg,#3B8B88,#E5A93C)">📍<img src="media/events/adygea.jpg" alt="Опера «Турандот»" loading="lazy" decoding="async" onerror="this.remove()"></div><span class="tag">16 октября · Ростов-на-Дону</span><h3>Опера «Турандот»</h3></article>
+      <article class="card"><div class="ph" style="background:linear-gradient(135deg,#E5A93C,#A63A2B)">📍<img src="media/events/kalmykia.jpg" alt="Аура Шоу в Астрахани" loading="lazy" decoding="async" onerror="this.remove()"></div><span class="tag">16 октября · Астрахань</span><h3>Аура Шоу. Главная музыка столетия</h3></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ О ПРОЕКТЕ ============ -->
+<section id="about" style="background:#fff" aria-labelledby="h-about">
+  <div class="container">
+    <h2 id="h-about">Наша миссия и цели</h2>
+    <p class="lead">Создать современный, информативный и эмоционально вовлекающий ресурс для продвижения согласия и памяти на юге России. Проект знакомит молодёжь с культурой русских, адыгов, калмыков, армян, греков Приазовья и других народов, учит уважать традиции соседей и гордиться многонациональной Родиной.</p>
+
+    <div class="timeline">
+      <div class="tl-step"><div class="tl-year">2024</div><h4>Зарождение идеи</h4><p>Инициатива молодёжных общин и педагогов ЮФО о создании единого цифрового пространства культур.</p></div>
+      <div class="tl-step"><div class="tl-year">2025</div><h4>Сбор материалов</h4><p>Архивные фотографии, записи фольклора, интервью с мастерами народных промыслов из всех регионов округа.</p></div>
+      <div class="tl-step"><div class="tl-year">2026</div><h4>Хакатон и запуск</h4><p>Разработка сайта командой «Проектирую будущее» и открытие платформы для широкой аудитории.</p></div>
+    </div>
+
+    <h2 style="margin-top:64px">Организаторы и поддержка</h2>
+    <div class="grid grid-3">
+      <article class="card" style="text-align:center"><div class="ph" style="background:rgba(166,58,43,.1)">🏛️</div><h3>Оргкомитет</h3><p>Координация проекта, работа с общинами и регионами ЮФО.</p></article>
+      <article class="card" style="text-align:center"><div class="ph" style="background:rgba(59,139,136,.1)">🤝</div><h3>Общественные ведомства</h3><p>Поддержка национально-культурных автономий округа.</p></article>
+      <article class="card" style="text-align:center"><div class="ph" style="background:rgba(229,169,60,.18)">🎓</div><h3>Комитет по делам молодёжи</h3><p>Программы для школьников и студентов, волонтёрские отряды.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ НАРОДЫ ЮФО ============ -->
+<section id="peoples" aria-labelledby="h-peoples">
+  <div class="container">
+    <h2 id="h-peoples">Народы Южного федерального округа</h2>
+    <p class="lead">Нажмите на регион карты, чтобы отфильтровать народы. Внутри каждой карточки — вкладки с традициями, одеждой, праздниками и ремёслами.</p>
+
+    <div class="map-wrap" style="margin-top:32px">
+      <svg viewBox="-8 -20 520 340" id="ufoMap" role="img" aria-label="Интерактивная карта регионов Южного федерального округа">
+<defs><clipPath id="mapClip"><rect x="-8" y="-20" width="520" height="340" rx="10"/></clipPath><pattern id="wave" width="16" height="9" patternUnits="userSpaceOnUse"><path d="M0,4.5 Q4,0.5 8,4.5 T16,4.5" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width=".9"/></pattern></defs>
+<g clip-path="url(#mapClip)">
+<path class="sea" d="M-80.0,-70.0 L560.0,-70.0 L560.0,400.0 L-80.0,400.0 Z"/><path class="sea-wave" d="M-80.0,-70.0 L560.0,-70.0 L560.0,400.0 L-80.0,400.0 Z"/>
+<g class="neighbors" pointer-events="none">
+<path class="nb-ru" d="M297.5,-70.0 L472.5,-70.0 L560.0,-27.5 L560.0,57.5 L485.5,100.0 L336.5,100.0 L262.0,96.5 L262.0,89.5 L252.5,77.0 L233.5,59.0 L221.5,42.5 L216.5,27.5 L213.0,-2.5 L211.0,-47.5 Z"/><path class="nb-ru" d="M188.8,204.0 L196.2,168.0 L225.0,150.0 L275.0,150.0 L301.5,162.5 L304.5,187.5 L312.0,215.0 L324.0,245.0 L333.8,269.0 L341.2,287.0 L351.8,301.5 L365.2,312.5 L379.0,324.8 L393.0,338.2 L400.0,358.8 L400.0,386.2 L375.0,400.0 L325.0,400.0 L300.0,365.5 L300.0,296.5 L286.2,258.0 L258.8,250.0 L230.0,240.0 L200.0,228.0 Z"/>
+<path class="nb-c" d="M-7.5,-70.0 L137.5,-70.0 L211.0,-47.5 L213.0,-2.5 L216.5,27.5 L221.5,42.5 L233.5,59.0 L252.5,77.0 L245.8,87.0 L213.2,89.0 L190.8,84.2 L178.2,72.8 L162.0,63.2 L142.0,55.8 L124.0,50.5 L108.0,47.5 L96.5,44.5 L89.5,41.5 L79.5,39.0 L66.5,37.0 L53.0,35.2 L39.0,33.8 L24.0,28.8 L8.0,20.2 L-20.0,11.0 L-60.0,1.0 L-80.0,-20.5 L-80.0,-53.5 Z"/>
+<path class="nb-c" d="M458.0,-70.0 L526.0,-70.0 L560.0,6.5 L560.0,159.5 L545.0,238.0 L515.0,242.0 L486.5,247.5 L459.5,254.5 L442.5,261.0 L435.5,267.0 L426.5,271.5 L415.5,274.5 L408.8,244.5 L406.2,181.5 L405.0,127.5 L405.0,82.5 L409.8,27.5 L419.2,-37.5 Z"/>
+<path class="nb-c" d="M172.2,232.5 L180.8,225.5 L200.0,228.0 L230.0,240.0 L258.8,250.0 L286.2,258.0 L300.0,296.5 L300.0,365.5 L285.0,400.0 L255.0,400.0 L236.5,375.0 L229.5,325.0 L211.5,284.0 L182.5,252.0 Z"/>
+<text class="nb-lab"  x="80" y="8" text-anchor="middle" font-size="9.5"><tspan x="80" dy="0">УКРАИНА</tspan></text>
+<text class="nb-lab"  x="268" y="298" text-anchor="middle" font-size="9.5"><tspan x="268" dy="0">ГРУЗИЯ</tspan><tspan x="268" dy="1.15em">(АБХАЗИЯ)</tspan></text>
+<text class="nb-lab" transform="translate(488,175) rotate(90)" text-anchor="middle" font-size="9.5">КАЗАХСТАН</text>
+<text class="nb-ru-lab"  x="255" y="10" text-anchor="middle" font-size="7.5"><tspan x="255" dy="0">Воронежская обл.</tspan></text>
+<text class="nb-ru-lab"  x="352" y="-8" text-anchor="middle" font-size="7.5"><tspan x="352" dy="0">Саратовская обл.</tspan></text>
+<text class="nb-ru-lab"  x="262" y="236" text-anchor="middle" font-size="7.5"><tspan x="262" dy="0">Ставропольский</tspan><tspan x="262" dy="1.15em">край</tspan></text>
+<text class="nb-ru-lab"  x="345" y="312" text-anchor="middle" font-size="7.5"><tspan x="345" dy="0">Дагестан</tspan></text>
+<text class="sea-lab"  x="50" y="175" text-anchor="middle" font-size="8"><tspan x="50" dy="0">Чёрное море</tspan></text>
+<text class="sea-lab"  x="150" y="66" text-anchor="middle" font-size="8"><tspan x="150" dy="0">Азовское море</tspan></text>
+<text class="sea-lab"  x="455" y="296" text-anchor="middle" font-size="8"><tspan x="455" dy="0">Каспийское</tspan><tspan x="455" dy="1.15em">море</tspan></text>
+</g><g id="regions">
+<path class="region" data-region="astrakhan" tabindex="0" role="button" aria-label="Астраханская область" d="M375.0,142.0 L372.2,144.2 L372.0,145.8 L374.0,150.0 L374.0,152.8 L375.8,156.2 L376.2,159.5 L380.0,164.0 L380.0,167.8 L378.0,172.0 L378.0,182.8 L379.0,185.0 L379.0,186.8 L380.2,190.5 L382.2,192.5 L384.5,193.0 L387.0,196.0 L387.0,198.8 L386.0,201.0 L386.0,203.8 L385.0,206.0 L385.0,213.8 L386.8,216.2 L387.0,219.8 L389.0,223.0 L389.0,228.8 L387.5,230.8 L383.8,232.0 L379.2,232.2 L375.8,235.0 L373.0,235.5 L369.2,234.5 L367.8,235.8 L367.8,237.0 L370.0,240.0 L370.2,243.5 L372.8,246.2 L373.0,250.8 L370.5,253.8 L369.2,254.2 L364.5,258.8 L363.2,259.2 L361.2,261.2 L361.0,262.8 L363.2,265.5 L369.5,267.0 L373.2,271.5 L375.5,272.0 L378.2,274.5 L380.8,274.2 L386.5,276.0 L388.2,277.5 L392.5,277.5 L398.0,275.8 L401.8,275.8 L403.2,276.5 L406.8,275.8 L411.0,277.2 L414.5,277.2 L419.5,273.8 L422.8,269.8 L422.8,266.0 L419.8,260.8 L420.0,257.2 L421.2,256.0 L425.0,254.8 L428.5,254.5 L430.8,251.8 L430.8,250.0 L429.8,247.8 L429.8,234.0 L430.8,231.8 L430.8,212.0 L429.5,208.2 L426.5,205.2 L424.2,204.8 L421.2,202.8 L414.5,196.2 L412.2,195.8 L409.8,192.8 L410.0,186.2 L415.5,179.5 L416.5,175.2 L408.8,164.8 L409.0,161.2 L413.2,156.5 L412.5,153.2 L409.5,146.2 L407.2,143.8 L404.8,142.0 L402.2,142.2 L400.5,143.8 L396.8,145.0 L394.0,145.0 L391.8,144.0 L389.0,144.0 L383.8,142.0 Z"><title>Астраханская область</title></path>
+<path class="region" data-region="kalmykia" tabindex="0" role="button" aria-label="Республика Калмыкия" d="M369.5,147.2 L368.2,147.2 L366.5,148.8 L362.8,150.0 L355.2,147.8 L353.5,146.2 L352.2,146.2 L349.5,148.8 L346.8,149.5 L343.2,148.8 L340.8,147.0 L339.0,147.0 L336.8,148.0 L334.0,148.0 L331.8,147.0 L329.2,147.2 L325.2,151.2 L323.8,155.5 L321.2,159.2 L321.2,160.5 L322.8,162.0 L324.0,162.0 L325.2,161.0 L328.0,160.2 L331.5,161.0 L333.0,163.0 L333.0,166.8 L330.8,171.5 L323.5,179.8 L319.8,181.0 L317.0,180.5 L311.2,181.2 L307.2,185.2 L306.8,189.5 L305.5,190.8 L301.8,192.0 L297.2,191.2 L295.5,192.8 L292.0,193.5 L289.2,192.8 L286.0,190.8 L284.8,190.8 L283.0,193.0 L284.2,196.5 L291.0,203.2 L293.8,207.2 L294.0,214.8 L292.5,219.0 L293.2,222.5 L294.8,224.2 L295.2,226.5 L296.8,228.2 L298.2,231.5 L303.8,238.2 L305.2,242.5 L306.8,244.2 L313.8,258.2 L315.0,262.0 L315.2,265.5 L318.2,268.5 L327.5,275.0 L333.8,281.2 L336.2,287.5 L341.8,293.2 L343.0,296.0 L343.0,297.8 L346.8,297.8 L347.0,295.2 L349.0,292.2 L352.2,289.0 L359.5,284.5 L369.5,275.5 L370.2,271.8 L370.0,270.8 L366.5,267.2 L361.2,265.8 L360.0,264.5 L360.0,260.2 L371.5,249.5 L371.5,248.2 L368.8,244.8 L369.0,237.2 L371.2,235.0 L373.5,234.5 L376.2,232.0 L380.0,230.8 L384.5,230.5 L386.8,227.8 L387.2,224.2 L385.8,221.8 L385.5,218.2 L383.8,215.8 L383.8,208.0 L384.8,205.8 L384.8,198.0 L379.0,191.5 L376.8,183.8 L376.8,170.0 L379.0,166.0 L379.0,164.8 L375.0,160.5 L374.5,158.2 L372.8,155.8 L371.5,149.2 Z"><title>Республика Калмыкия</title></path>
+<path class="region" data-region="volgograd" tabindex="0" role="button" aria-label="Волгоградская область" d="M348.2,7.2 L346.2,9.2 L346.0,15.8 L342.2,20.2 L341.8,23.5 L337.2,27.0 L335.0,30.0 L335.0,36.8 L334.2,39.5 L337.8,43.2 L339.0,47.0 L338.8,57.5 L330.2,65.2 L328.8,69.5 L326.2,72.2 L326.2,73.5 L330.0,78.0 L329.5,82.5 L332.0,86.0 L331.8,93.5 L325.5,98.8 L322.5,99.8 L318.2,98.8 L314.8,97.0 L310.2,97.2 L306.0,102.5 L299.2,108.2 L299.2,109.5 L301.2,111.5 L304.5,113.0 L307.2,115.5 L309.0,118.0 L309.0,127.8 L308.0,130.0 L308.0,134.8 L307.0,137.8 L310.8,142.2 L311.2,145.5 L313.2,147.5 L322.0,151.2 L324.2,150.0 L327.2,147.0 L331.0,145.8 L332.8,145.8 L335.0,146.8 L338.0,145.8 L339.8,145.8 L343.5,147.0 L345.8,149.0 L347.0,149.0 L350.2,146.0 L353.8,145.2 L356.5,146.0 L360.2,149.5 L362.8,149.8 L372.2,142.0 L376.0,140.8 L378.8,140.8 L381.5,140.0 L386.5,142.0 L388.2,143.5 L391.5,143.0 L393.0,143.8 L397.8,143.8 L403.0,141.8 L404.8,141.8 L408.5,143.0 L410.8,145.2 L412.2,150.5 L413.2,152.5 L415.2,154.5 L416.5,154.5 L422.2,150.0 L426.0,148.8 L430.5,148.5 L433.0,146.2 L434.8,143.8 L434.8,140.0 L433.8,137.8 L434.0,133.2 L438.5,128.5 L439.0,127.2 L445.2,121.0 L449.0,119.8 L452.8,120.8 L457.5,118.5 L460.5,115.5 L461.0,113.2 L465.5,108.5 L466.2,101.2 L464.5,99.2 L462.2,98.8 L461.0,97.5 L460.5,89.2 L457.8,87.0 L452.0,88.5 L446.2,86.8 L444.8,84.8 L444.5,78.2 L443.5,76.2 L441.5,74.2 L439.0,74.0 L434.0,75.5 L431.2,74.8 L429.0,72.5 L429.0,68.2 L433.5,63.5 L433.8,58.0 L434.8,55.8 L434.5,54.2 L430.5,47.2 L426.5,43.2 L424.2,42.8 L420.5,39.2 L417.5,37.5 L415.2,37.8 L412.2,36.8 L409.5,34.2 L405.8,32.0 L402.2,32.8 L396.2,30.8 L394.8,28.8 L394.5,24.2 L393.0,22.5 L392.5,20.2 L390.5,16.2 L388.5,14.2 L386.8,13.5 L383.0,14.0 L379.2,12.8 L374.2,9.0 L368.5,3.2 L367.2,3.2 L363.5,5.8 L360.8,6.5 L354.0,5.0 L350.5,6.8 Z"><title>Волгоградская область</title></path>
+<path class="region" data-region="rostov" tabindex="0" role="button" aria-label="Ростовская область" d="M330.8,32.0 L328.0,32.0 L325.0,31.0 L322.2,32.2 L318.5,35.8 L314.8,37.0 L313.0,37.0 L310.8,36.0 L309.0,36.0 L301.2,33.8 L296.5,29.5 L292.2,30.2 L290.2,32.2 L290.0,36.8 L288.5,38.8 L278.8,42.0 L277.0,42.0 L274.0,41.0 L271.2,43.2 L270.8,47.5 L269.5,48.8 L267.2,49.2 L262.5,54.2 L263.0,58.8 L262.0,61.0 L262.0,64.8 L260.8,68.5 L259.5,69.8 L256.2,71.2 L253.5,73.8 L251.2,74.2 L248.5,76.8 L245.5,77.8 L244.2,77.8 L239.2,75.8 L234.5,70.2 L233.2,69.8 L228.5,65.2 L226.5,64.2 L225.2,64.2 L219.5,66.8 L215.0,66.0 L212.8,65.0 L208.2,64.8 L203.0,69.2 L199.5,73.8 L196.8,75.8 L196.8,77.0 L198.2,78.5 L201.5,80.0 L207.2,84.5 L212.8,84.8 L216.5,86.0 L217.8,87.2 L217.8,91.5 L215.5,93.8 L212.8,94.5 L205.8,93.5 L204.2,93.8 L200.2,97.2 L199.8,98.5 L196.8,101.8 L196.8,103.0 L203.2,108.5 L204.5,108.5 L209.0,106.8 L210.8,106.8 L214.5,108.0 L223.8,117.2 L223.8,121.5 L221.0,125.0 L222.0,128.0 L222.0,131.8 L220.5,136.8 L221.2,139.5 L223.2,141.5 L226.5,143.0 L227.8,144.2 L228.2,146.5 L231.8,150.2 L232.0,156.8 L231.0,159.0 L231.2,162.5 L233.2,164.5 L235.2,165.5 L240.5,167.0 L241.8,168.0 L243.0,168.0 L245.2,166.0 L249.0,164.8 L252.5,165.5 L254.0,164.8 L258.5,164.5 L264.0,159.8 L266.8,159.2 L269.5,160.0 L272.8,164.2 L275.2,171.5 L277.2,173.5 L283.5,175.0 L284.8,176.2 L285.0,179.8 L286.0,182.0 L286.2,186.5 L289.0,190.5 L292.0,192.8 L293.5,192.5 L298.0,189.8 L300.0,189.2 L302.5,189.5 L304.5,187.5 L305.0,184.2 L308.2,182.0 L316.0,179.8 L317.8,179.8 L320.0,180.8 L321.5,180.5 L324.8,177.5 L330.5,170.5 L334.2,163.8 L334.0,162.8 L332.5,161.2 L327.0,161.0 L323.2,159.8 L322.0,158.5 L321.8,156.0 L320.5,153.2 L318.5,151.2 L314.5,149.2 L312.2,148.8 L311.0,147.5 L310.5,143.2 L306.8,138.8 L306.8,132.0 L308.8,126.8 L308.8,124.0 L307.8,121.8 L307.5,118.2 L303.5,114.2 L300.2,112.8 L297.8,109.8 L298.0,106.2 L302.5,102.8 L307.2,98.0 L311.0,96.8 L315.8,96.8 L321.0,98.8 L324.8,98.8 L327.2,97.0 L331.5,92.5 L331.8,88.0 L329.0,84.5 L328.8,79.0 L325.0,74.5 L324.8,71.0 L328.5,66.5 L329.0,64.2 L331.2,62.0 L334.5,60.5 L337.5,57.5 L338.8,54.8 L338.8,53.0 L337.8,50.8 L337.5,46.2 L332.8,39.8 L332.8,37.0 L333.5,34.2 Z"><title>Ростовская область</title></path>
+<path class="region" data-region="krasnodar" tabindex="0" role="button" aria-label="Краснодарский край" d="M175.0,85.8 L173.8,85.8 L172.2,87.2 L170.5,93.0 L170.8,94.0 L172.8,96.2 L175.0,102.0 L174.8,105.5 L171.5,107.8 L165.5,109.8 L160.0,108.5 L154.5,111.8 L150.8,113.0 L146.2,112.2 L140.5,117.8 L136.8,119.0 L130.2,116.8 L129.0,115.5 L125.5,108.2 L123.5,106.2 L122.2,106.2 L119.5,108.8 L116.5,109.8 L113.2,109.2 L111.2,111.2 L111.2,112.5 L116.8,119.2 L120.0,126.0 L120.0,129.8 L118.0,134.0 L118.2,139.5 L121.0,143.5 L125.8,147.2 L126.0,150.8 L128.0,154.0 L128.0,157.8 L127.2,160.5 L130.2,165.5 L135.8,172.2 L137.0,175.0 L137.0,178.8 L140.0,188.0 L140.0,193.8 L141.0,196.0 L141.0,205.8 L142.0,208.0 L142.0,214.8 L143.0,217.0 L143.2,222.5 L145.2,224.2 L151.0,222.2 L154.5,223.0 L156.8,225.2 L159.2,229.5 L161.2,231.5 L164.0,232.2 L166.2,231.0 L168.0,228.2 L172.2,224.0 L178.5,222.5 L180.2,221.0 L183.0,220.2 L186.5,221.0 L188.8,223.2 L189.2,226.5 L193.2,230.2 L198.8,229.8 L203.5,227.5 L206.5,224.5 L207.0,221.2 L209.2,218.5 L208.8,216.8 L209.0,210.2 L210.2,209.0 L212.5,208.5 L216.5,206.5 L218.5,204.5 L219.5,202.5 L219.5,201.2 L216.8,197.8 L216.8,192.0 L217.8,189.0 L213.8,183.8 L213.8,180.0 L214.8,177.8 L215.0,170.2 L216.2,169.0 L219.8,168.2 L222.5,169.0 L224.2,170.5 L225.5,170.5 L227.5,169.5 L230.8,165.8 L230.8,158.0 L231.2,156.0 L230.5,150.2 L225.8,144.2 L222.2,141.8 L219.8,138.8 L219.8,134.0 L221.8,130.8 L221.8,129.0 L220.8,126.8 L220.8,124.0 L224.0,120.0 L224.0,118.8 L213.5,108.2 L210.5,106.8 L209.0,106.5 L203.8,108.5 L200.2,107.8 L196.8,103.8 L196.8,101.0 L199.0,98.0 L199.0,96.8 L197.0,94.5 L196.5,92.2 L193.5,89.2 L187.2,90.8 L178.2,87.8 Z"><title>Краснодарский край</title></path>
+<path class="region" data-region="crimea" tabindex="0" role="button" aria-label="Республика Крым" d="M29.2,29.0 L28.2,30.2 L28.2,31.5 L31.2,34.5 L33.5,35.0 L35.8,37.2 L36.8,39.2 L37.2,47.5 L39.2,49.5 L41.5,50.0 L43.0,52.0 L43.0,55.8 L41.2,59.2 L40.8,61.5 L36.2,66.2 L36.0,68.8 L35.0,71.0 L35.0,73.8 L34.0,76.0 L34.0,81.8 L36.2,84.5 L43.8,84.8 L46.2,83.0 L50.0,81.8 L53.0,82.8 L56.8,82.2 L59.5,83.0 L61.2,84.5 L65.2,86.5 L67.8,86.2 L70.5,87.0 L74.2,90.2 L77.8,89.8 L79.2,89.0 L83.5,90.0 L85.5,91.0 L88.8,94.2 L89.2,100.5 L92.2,103.5 L96.5,105.0 L99.2,107.5 L103.2,109.5 L104.5,109.5 L105.8,108.5 L108.0,105.2 L111.2,102.0 L113.5,101.5 L115.5,99.5 L115.5,98.2 L110.5,93.2 L103.2,90.8 L99.5,87.5 L94.0,88.0 L90.2,86.8 L87.0,84.5 L86.5,82.2 L84.8,78.8 L84.8,76.0 L88.5,71.5 L88.8,67.0 L87.8,64.8 L87.8,62.0 L86.8,59.8 L86.8,56.0 L83.8,51.8 L83.8,47.0 L84.2,45.2 L81.0,41.5 L80.5,37.2 L76.0,33.5 L75.5,31.2 L74.0,29.8 L69.2,29.2 L66.5,31.8 L62.0,33.0 L52.8,29.5 L50.2,29.8 L48.8,29.0 L46.0,29.0 L43.8,28.0 L40.8,29.0 L39.0,29.0 L32.0,27.0 Z"><title>Республика Крым</title></path>
+<path class="region" data-region="adygea" tabindex="0" role="button" aria-label="Республика Адыгея" d="M153.8,150.8 L153.0,152.8 L154.8,155.2 L155.2,159.5 L159.0,164.5 L167.2,171.5 L168.8,171.8 L171.5,171.0 L174.5,172.0 L177.0,175.0 L176.8,179.5 L171.2,184.0 L168.2,187.2 L167.0,190.0 L166.8,194.5 L164.5,196.8 L160.8,198.0 L157.8,197.8 L154.2,202.2 L154.2,204.5 L156.8,207.2 L157.0,210.8 L158.8,213.2 L159.2,216.5 L161.2,218.5 L162.5,218.5 L167.5,215.5 L169.5,213.5 L170.0,211.2 L177.5,202.5 L178.0,200.2 L180.0,196.2 L182.2,194.0 L186.0,192.8 L189.5,193.2 L190.5,192.5 L192.8,187.8 L192.8,185.0 L191.8,182.8 L191.8,178.0 L190.5,174.2 L188.5,172.2 L185.2,170.8 L182.0,167.5 L180.0,164.5 L179.5,161.2 L178.5,160.2 L175.8,161.0 L169.0,161.0 L162.2,158.8 L160.0,156.5 L159.5,154.2 L155.0,150.8 Z"><title>Республика Адыгея</title></path>
+<path class="region" data-region="sevastopol" tabindex="0" role="button" aria-label="город Севастополь" d="M34.0,69.8 L32.8,69.8 L31.0,71.8 L28.2,71.2 L27.0,73.0 L27.0,75.8 L29.2,80.5 L32.0,82.2 L33.5,81.5 L33.8,77.0 L36.0,73.0 L36.0,71.8 Z"><title>город Севастополь</title></path>
+</g><g id="regLabels">
+<text class="region-label" data-for="rostov" x="258" y="100" text-anchor="middle" font-size="9"><tspan x="258" dy="0">Ростовская</tspan><tspan x="258" dy="1.15em">область</tspan></text>
+<text class="region-label" data-for="volgograd" x="373" y="84" text-anchor="middle" font-size="9"><tspan x="373" dy="0">Волгоградская</tspan><tspan x="373" dy="1.15em">область</tspan></text>
+<text class="region-label" data-for="krasnodar" x="170" y="132" text-anchor="middle" font-size="8.5"><tspan x="170" dy="0">Краснодарский</tspan><tspan x="170" dy="1.15em">край</tspan></text>
+<text class="region-label" data-for="kalmykia" x="330" y="204" text-anchor="middle" font-size="8.5"><tspan x="330" dy="0">Республика</tspan><tspan x="330" dy="1.15em">Калмыкия</tspan></text>
+<text class="region-label" data-for="astrakhan" x="403" y="240" text-anchor="middle" font-size="7"><tspan x="403" dy="0">Астраханская</tspan><tspan x="403" dy="1.15em">область</tspan></text>
+<text class="region-label" data-for="crimea" x="62" y="65" text-anchor="middle" font-size="7.5"><tspan x="62" dy="0">Республика</tspan><tspan x="62" dy="1.15em">Крым</tspan></text>
+<line class="leader" x1="187" y1="184" x2="234" y2="200"/><circle class="ldot" cx="234" cy="200" r="1.6"/>
+<text class="region-label ext-label" data-region="adygea" data-for="adygea" x="252" y="205" text-anchor="middle" font-size="8.5"><tspan x="252" dy="0">Республика</tspan><tspan x="252" dy="1.15em">Адыгея</tspan></text>
+<line class="leader" x1="30" y1="80" x2="30" y2="102"/><circle class="ldot" cx="30" cy="102" r="1.6"/>
+<text class="region-label ext-label" data-region="sevastopol" data-for="sevastopol" x="30" y="113" text-anchor="middle" font-size="8"><tspan x="30" dy="0">г. Севастополь</tspan></text>
+<circle class="hit" data-region="sevastopol" cx="31" cy="76" r="8" tabindex="-1"/>
+</g></g></svg>
+      <div>
+        <h3 id="mapTitle">Все регионы ЮФО</h3>
+        <p id="mapDesc" style="margin:10px 0 20px;color:#5a5d60">Южный федеральный округ объединяет восемь субъектов и более пятнадцати народов. Выберите регион на карте или сбросьте фильтр.</p>
+        <button class="btn btn-ghost" id="mapReset">Показать все народы</button>
+        <p class="map-hint">Нажмите на регион ещё раз, чтобы снять выбор. Карта работает и с клавиатуры: Tab и Enter.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:28px;color:#5a5d60">Народов в списке: <strong id="nationsCount">8</strong></p>
+    <div class="grid grid-3" id="nationsGrid" style="margin-top:36px"></div>
+  </div>
+</section>
+
+<!-- ============ НАСЛЕДИЕ ============ -->
+<section id="heritage" style="background:#fff" aria-labelledby="h-heritage">
+  <div class="container">
+    <h2 id="h-heritage">Культурное наследие</h2>
+    <div class="media-grid">
+      <div>
+        <h3 style="margin-bottom:14px">🎬 Видео: национальные танцы и обряды</h3>
+        <video controls preload="metadata" poster="media/video/poster.jpg" aria-label="Видео: национальные танцы и обряды народов ЮФО">
+          <source src="media/video/dances.mp4" type="video/mp4" onerror="document.getElementById('videoNote').style.display='block'">
+          Ваш браузер не поддерживает видео.
+        </video>
+        <p class="video-note" id="videoNote">Видео скоро появится: записи фестивалей и обрядов народов ЮФО.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom:14px">🎧 Аудио: фольклорный плейлист</h3>
+        <div class="playlist" id="playlist"></div>
+        <audio id="audioPlayer" controls style="width:100%;margin-top:10px" aria-label="Аудиоплеер"></audio>
+      </div>
+    </div>
+
+    <h2 style="margin-top:64px">Галерея народных промыслов</h2>
+    <div class="grid grid-3">
+      <article class="gal-item"><div class="ph" style="height:100%;background:linear-gradient(135deg,#A63A2B,#E5A93C);display:flex;align-items:center;justify-content:center;font-size:48px">🧶<img src="media/crafts/carpet.jpg" alt="Ковроделие: донские и кубанские ковры" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="cap">Ковроделие: донские и кубанские ковры с растительным орнаментом, ручная работа.</div></article>
+      <article class="gal-item"><div class="ph" style="height:100%;background:linear-gradient(135deg,#3B8B88,#E5A93C);display:flex;align-items:center;justify-content:center;font-size:48px">⚒️<img src="media/crafts/copper.jpg" alt="Чеканка меди" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="cap">Кузнечное дело: чеканка меди, традиционная обработка металла кавказских мастеров.</div></article>
+      <article class="gal-item"><div class="ph" style="height:100%;background:linear-gradient(135deg,#E5A93C,#A63A2B);display:flex;align-items:center;justify-content:center;font-size:48px">✨<img src="media/crafts/gold-embroidery.jpg" alt="Золотое шитьё адыгских нарядов" loading="lazy" decoding="async" onerror="this.remove()"></div><div class="cap">Золотое шитьё: адыгские наряды с золотой канителью — гордость народных умельиц.</div></article>
+    </div>
+
+    <h2 style="margin-top:64px">Кулинарные традиции народов ЮФО</h2>
+    <div class="slider" role="region" aria-label="Кулинарные традиции — прокрутите вправо">
+      <article class="card"><div class="ph" style="background:linear-gradient(135deg,#E5A93C,#f0c060)">🍲<img src="media/food/uha.jpg" alt="Уха донская" loading="lazy" decoding="async" onerror="this.remove()"></div><h3>Уха донская</h3><p>Походная уха донских казаков на костре — три вида рыбы, душистые травы.</p></article>
+      <article class="card"><div class="ph" style="background:linear-gradient(135deg,#A63A2B,#c55a48)">🥟<img src="media/food/hychiny.jpg" alt="Хычины" loading="lazy" decoding="async" onerror="this.remove()"></div><h3>Хычины</h3><p>Адыгские лепёшки с картофелем, сыром или мясом — символ гостеприимства.</p></article>
+      <article class="card"><div class="ph" style="background:linear-gradient(135deg,#3B8B88,#5faeab)">🍵<img src="media/food/kalmyk-tea.jpg" alt="Калмыцкий чай" loading="lazy" decoding="async" onerror="this.remove()"></div><h3>Калмыцкий чай</h3><p>Чай с молоком, маслом и мукой — традиционный напиток кочевников.</p></article>
+      <article class="card"><div class="ph" style="background:linear-gradient(135deg,#E5A93C,#A63A2B)">🍖<img src="media/food/shashlyk.jpg" alt="Шашлык по-гречески" loading="lazy" decoding="async" onerror="this.remove()"></div><h3>Шашлык по-гречески</h3><p>Маринад из вина и трав Приазовья — рецепт греческих общин Дона.</p></article>
+      <article class="card"><div class="ph" style="background:linear-gradient(135deg,#3B8B88,#A63A2B)">🥘<img src="media/food/hashlama.jpg" alt="Хашлама" loading="lazy" decoding="async" onerror="this.remove()"></div><h3>Хашлама</h3><p>Армянское жаркое из говядины с овощами — блюдо застолья и дружбы.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ АФИША ============ -->
+<section id="events" aria-labelledby="h-events">
+  <div class="container">
+    <h2 id="h-events">Афиша культурных фестивалей и выставок</h2>
+    <div class="filters">
+      <div><label for="fRegion">Регион</label><select id="fRegion"><option value="">Все регионы</option><option>Ростовская область</option><option>Краснодарский край</option><option>Адыгея</option><option>Калмыкия</option><option>Волгоградская область</option><option>Астраханская область</option></select></div>
+      <div><label for="fType">Формат</label><select id="fType"><option value="">Все события</option><option>Фестиваль</option><option>Выставка</option><option>Концерт</option><option>Мастер-класс</option></select></div>
+      <div><label for="fDate">Дата</label><input type="date" id="fDate"></div>
+      <button class="btn btn-ghost" id="fReset" style="padding:10px 20px">Сбросить</button>
+    </div>
+    <div style="overflow-x:auto">
+    <table class="ev-table">
+      <caption class="visually-hidden">Список культурных мероприятий ЮФО с возможностью регистрации</caption>
+      <thead><tr><th scope="col">Дата</th><th scope="col">Название мероприятия</th><th scope="col">Формат</th><th scope="col">Место (город)</th><th scope="col">Действие</th></tr></thead>
+      <tbody id="evBody"></tbody>
+    </table>
+    </div>
+    <p id="evEmpty" style="display:none;margin-top:20px;color:#8a8d90">По выбранным фильтрам событий не найдено. Попробуйте изменить параметры.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- Модальное окно регистрации -->
+<div class="modal-bg" id="regModal" role="dialog" aria-modal="true" aria-labelledby="regTitle">
+  <div class="modal">
+    <button class="modal-x" id="regClose" aria-label="Закрыть окно">×</button>
+    <h3 id="regTitle" style="margin-bottom:20px">Регистрация на событие</h3>
+    <p id="regEventName" style="margin-bottom:18px;color:var(--terra);font-weight:600"></p>
+    <form id="regForm" novalidate>
+      <!-- Honeypot: скрытое поле для ботов -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="regWebsite">Не заполняйте это поле</label>
+        <input type="text" id="regWebsite" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="formLoadedAt" id="regLoadedAt">
+      <div class="field"><label for="regName">ФИО</label><input id="regName" name="name" required maxlength="120" autocomplete="name" placeholder="Иванова Анна Сергеевна"></div>
+      <div class="field"><label for="regEmail">Email</label><input id="regEmail" name="email" type="email" required maxlength="120" autocomplete="email" placeholder="anna@mail.ru"></div>
+      <div class="field"><label for="regPhone">Телефон</label><input id="regPhone" name="phone" type="tel" required pattern="[+0-9\s()\-]{10,20}" autocomplete="tel" placeholder="+7 (___) ___-__-__"></div>
+      <div class="field"><label for="regSeats">Количество мест</label><input id="regSeats" name="seats" type="number" min="1" max="10" value="1" required></div>
+      <button class="btn btn-terra" type="submit" style="width:100%">Отправить заявку</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ КОНТАКТЫ ============ -->
+<section id="contacts" style="background:#fff" aria-labelledby="h-contacts">
+  <div class="container">
+    <h2 id="h-contacts">Контакты и обратная связь</h2>
+    <div class="contact-grid">
+      <div class="contact-info card">
+        <h3 style="margin-bottom:18px">Штаб проекта</h3>
+        <p>📍 <strong>Адрес:</strong> Ростовская обл., Сальский р-н, пос. Гигант, ул. Крупской, д. 6 (Сальский аграрно-технический колледж)</p>
+        <p>📞 <strong>Телефон:</strong> <a href="tel:+78001234567">8 (800) 123-45-67</a> (бесплатно по России)</p>
+        <p>✉️ <strong>E-mail:</strong> <a href="mailto:info@unity-ufo.ru">info@unity-ufo.ru</a></p>
+        <p>💬 <strong>Соцсети:</strong> <a href="https://vk.ru/club_satk?ysclid=mv0ki9bi6s553349769" target="_blank" rel="noopener">ВКонтакте</a></p>
+        <p style="margin-top:20px;font-size:14px;color:#5a5d60">Представители общин, педагоги и волонтёры могут направить обращение через форму — мы отвечаем в течение двух рабочих дней.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:18px">Форма связи</h3>
+        <form id="contactForm" novalidate>
+          <!-- Honeypot -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="cWebsite">Не заполняйте это поле</label>
+            <input type="text" id="cWebsite" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="formLoadedAt" id="cLoadedAt">
+          <div class="field"><label for="cName">Ваше имя</label><input id="cName" name="name" required maxlength="120" autocomplete="name" placeholder="Как к вам обращаться"></div>
+          <div class="field"><label for="cEmail">Email</label><input id="cEmail" name="email" type="email" required maxlength="120" autocomplete="email" placeholder="you@mail.ru"></div>
+          <div class="field"><label for="cSubject">Тема сообщения</label><input id="cSubject" name="subject" required maxlength="150" placeholder="Например: сотрудничество общины"></div>
+          <div class="field"><label for="cMessage">Текст обращения</label><textarea id="cMessage" name="message" rows="4" required maxlength="1500" placeholder="Расскажите о вашем предложении или вопросе"></textarea></div>
+          <button class="btn btn-terra" type="submit" style="width:100%">Отправить сообщение</button>
+        </form>
+      </div>
+    </div>
+    <h2 style="margin-top:56px">Карта проезда к штабу</h2>
+    <iframe class="map-iframe" src="https://yandex.ru/map-widget/v1/?ll=41.333775%2C46.506528&z=15&pt=41.333775,46.506528,pm2rdm" loading="lazy" title="Карта проезда к Сальскому аграрно-техническому колледжу"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot">
+    <a class="logo" href="#home" style="color:#fff" aria-label="Единство народов — на главную">
+      <svg width="28" height="28" viewBox="0 0 34 34" aria-hidden="true" focusable="false"><circle cx="17" cy="17" r="8" fill="#E5A93C"/><g stroke="#E5A93C" stroke-width="2.5" stroke-linecap="round"><line x1="17" y1="2" x2="17" y2="7"/><line x1="17" y1="27" x2="17" y2="32"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="27" y1="17" x2="32" y2="17"/></g></svg>
+      Единство народов
+    </a>
+    <div>© 2026 Проект «Единство народов» · Южный федеральный округ</div>
+    <div class="socials"><a href="https://vk.ru/club_satk?ysclid=mv0ki9bi6s553349769" target="_blank" rel="noopener">VK</a><a href="Положение_Хакатон_СИТ.pdf" class="policy" target="_blank" rel="noopener">Положение хакатона</a></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ---------- HERO SLIDER ---------- */
+const slides=[...document.querySelectorAll('.slide')];
+const dotsBox=document.getElementById('heroDots');
+let cur=0,timer;
+slides.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('role','tab');b.setAttribute('aria-label','Слайд '+(i+1));if(!i)b.classList.add('active');b.onclick=()=>go(i);dotsBox.appendChild(b)});
+const dots=[...dotsBox.children];
+function go(i){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=(i+slides.length)%slides.length;slides[cur].classList.add('active');dots[cur].classList.add('active');restart()}
+function restart(){clearInterval(timer);timer=setInterval(()=>go(cur+1),6000)}
+document.getElementById('heroPrev').onclick=()=>go(cur-1);
+document.getElementById('heroNext').onclick=()=>go(cur+1);
+restart();
+
+/* ---------- NAV ACTIVE ---------- */
+const navA=[...document.querySelectorAll('#navLinks a')];
+const secs=navA.map(a=>document.querySelector(a.getAttribute('href')));
+window.addEventListener('scroll',()=>{let idx=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<140)idx=i});navA.forEach((a,i)=>a.classList.toggle('active',i===idx))},{passive:true});
+
+/* ---------- NATIONS DATA + MAP ---------- */
+const nations=[
+ {region:['rostov','volgograd','krasnodar','adygea','astrakhan'],emoji:'🪆',grad:'#A63A2B,#E5A93C',name:'Русские',img:'russkie',tags:'История, традиции, фольклор',
+  tabs:{'Одежда':'Сарафан, рубаха-косоворотка, понёва и кокошник у женщин; кафтан, кушак и сапоги у мужчин. В южных регионах — казачьи черкески, шаровары и папахи.','Праздники':'Масленица, Пасха, Троица, Иван Купала, Рождество. Народные гулянья с хороводами, ярмарками и песнями.','Ремёсла':'Резьба по дереву, гончарное дело, вышивка, кружевоплетение, кузнечное дело, иконопись и роспись по дереву.'}},
+ {region:['adygea','krasnodar'],emoji:'🏔️',grad:'#3B8B88,#E5A93C',name:'Адыги (черкесы)',img:'adygi',tags:'История, нартский эпос',
+  tabs:{'Одежда':'Черкесская кабардинка с серебряными газырями и золотым шитьём — эталон кавказского костюма.','Праздники':'Нартский эпос, праздник первого плуга, танец «исламей» — карточная визитная песня адыгов.','Ремёсла':'Золотое шитьё канителью, чеканка по серебру, изготовление кинжалов и седел.'}},
+ {region:['kalmykia','astrakhan','volgograd','rostov'],emoji:'🐫',grad:'#E5A93C,#A63A2B',name:'Калмыки',img:'kalmyki',tags:'Буддизм, кочевые традиции',
+  tabs:{'Одежда':'Деель из ярких тканей, женские украшения с кораллом и серебром, меховые малахаи.','Праздники':'Цаган Сар — калмыцкий Новый год, праздник урожая, скачки и национальная борьба.','Ремёсла':'Войлочное ремесло (юрта), резьба по дереву, ювелирное дело и косторезное искусство.'}},
+ {region:['rostov','krasnodar','crimea','sevastopol'],emoji:'🧵',grad:'#3B8B88,#A63A2B',name:'Армяне Дона',img:'armyane',tags:'Ремёсла, кулинария',
+  tabs:{'Одежда':'Традиционные армянские наряды с серебряными украшениями и вышивкой «хорани».','Праздники':'Вардавар, Терндез, дни памяти предков и застолья с тостами дружбы.','Ремёсла':'Ковроделие, ювелирное искусство, керамика и знаменитая армянская кухня.'}},
+ {region:['krasnodar','rostov','crimea','sevastopol'],emoji:'🌊',grad:'#E5A93C,#3B8B88',name:'Греки Приазовья',img:'greki',tags:'Фольклор, самобытная культура',
+  tabs:{'Одежда':'Старинные греческие сарафаны, кокошники и вышитые передники уроженок приазовских сёл.','Праздники':'Пасха, праздник первого вина, фольклорные фестивали с танцем «сиртаки».','Ремёсла':'Виноделие, вышивка, резьба по дереву и кулинарные традиции Приазовья.'}},
+ {region:['astrakhan'],emoji:'🐟',grad:'#3B8B88,#E5A93C',name:'Ногайцы',img:'nogaytsy',tags:'Кочевые традиции, фольклор',
+  tabs:{'Одежда':'Яркие женские платья с нагрудными украшениями и расшитые тюбетейки.','Праздники':'Навруз, Сабантуй и семейные обряды с традиционным угощением.','Ремёсла':'Войлок, кожевенное дело, вышивка и изготовление национальных музыкальных инструментов.'}},
+ {region:['astrakhan','volgograd'],emoji:'🏜️',grad:'#E5A93C,#3B8B88',name:'Казахи',img:'kazahi',tags:'Эпос, музыка, гостеприимство',
+  tabs:{'Одежда':'Шапан, тюбетейка и украшения с серебром и бирюзой.','Праздники':'Наурыз — праздник весны, айтыс и состязания на лошадях.','Ремёсла':'Ковроткачество, войлок, резьба по дереву и ювелирное дело.'}},
+ {region:['crimea','sevastopol'],emoji:'🌿',grad:'#3B8B88,#A63A2B',name:'Крымские татары',img:'krym-tatary',tags:'Орнамент, музыка, гостеприимство',
+  tabs:{'Одежда':'Национальный костюм с вышивкой, тюбетейка и украшения с филигранью.','Праздники':'Хыдырлез, Курбан-байрам, праздник цветения миндаля и фестивали народной музыки.','Ремёсла':'Гончарное дело, вышивка золотом, чеканка по меди и изготовление ковров.'}}
+];
+const grid=document.getElementById('nationsGrid');
+function renderNations(region){
+ grid.innerHTML='';
+ const list=nations.filter(n=>!region||n.region.includes(region));
+ list.forEach(n=>{
+  const tabs=Object.keys(n.tabs).map((t,i)=>`<button type="button" class="${i?'':'on'}" data-tab="${t}" aria-selected="${i?'false':'true'}">${t}</button>`).join('');
+  const bodies=Object.entries(n.tabs).map(([t,txt],i)=>`<div class="nation-body ${i?'':'on'}" data-body="${t}">${txt}</div>`).join('');
+  const d=document.createElement('details');d.className='card';
+  d.innerHTML=`<summary><div class="ph" style="background:linear-gradient(135deg,${n.grad});color:#fff">${n.emoji}<img src="media/peoples/${n.img}.jpg" alt="${n.name}" loading="lazy" decoding="async" onerror="this.remove()"></div>
+   <h3 style="display:inline">${n.name}</h3><br><span class="tag">${n.tags}</span></summary>
+   <div class="tabs" role="tablist">${tabs}</div>${bodies}`;
+  grid.appendChild(d);
+ });
+ const cnt=document.getElementById('nationsCount');if(cnt)cnt.textContent=list.length;
+ grid.querySelectorAll('.tabs button').forEach(b=>b.onclick=e=>{e.preventDefault();const card=b.closest('details');
+  card.querySelectorAll('.tabs button').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false')});
+  b.classList.add('on');b.setAttribute('aria-selected','true');
+  card.querySelectorAll('.nation-body').forEach(x=>x.classList.toggle('on',x.dataset.body===b.dataset.tab));});
+}
+renderNations();
+
+const names={crimea:'Республика Крым',sevastopol:'г. Севастополь',rostov:'Ростовская область',volgograd:'Волгоградская область',krasnodar:'Краснодарский край',adygea:'Республика Адыгея',kalmykia:'Республика Калмыкия',astrakhan:'Астраханская область'};
+const regionEls=document.querySelectorAll('.region');
+const clickEls=document.querySelectorAll('#ufoMap [data-region]');
+let currentRegion=null;
+function selectRegion(id,scroll){
+ currentRegion=id;
+ regionEls.forEach(r=>r.classList.toggle('sel',r.dataset.region===id));
+ const top=document.querySelector('.region[data-region="'+id+'"]');if(top){const g=top.parentNode;g.appendChild(top);['adygea','sevastopol'].forEach(k=>g.appendChild(g.querySelector('[data-region="'+k+'"]')));}
+ document.querySelectorAll('.region-label').forEach(l=>l.classList.toggle('on',l.dataset.for===id));
+ document.getElementById('mapTitle').textContent=names[id];
+ renderNations(id);
+ document.getElementById('mapDesc').textContent='Показаны народы, традиционно проживающие в регионе: '+names[id]+'. Найдено: '+grid.children.length+'.';
+ if(scroll)grid.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function resetMap(){
+ currentRegion=null;
+ regionEls.forEach(x=>x.classList.remove('sel'));
+ document.querySelectorAll('.region-label').forEach(l=>l.classList.remove('on'));
+ document.getElementById('mapTitle').textContent='Все регионы ЮФО';
+ document.getElementById('mapDesc').textContent='Южный федеральный округ объединяет восемь субъектов и более пятнадцати народов. Выберите регион на карте.';
+ renderNations();
+}
+clickEls.forEach(r=>{
+ const toggle=()=>currentRegion===r.dataset.region?resetMap():selectRegion(r.dataset.region,true);
+ r.addEventListener('click',toggle);
+ r.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+});
+document.getElementById('mapReset').onclick=resetMap;
+
+/* ---------- PLAYLIST ---------- */
+const tracks=[
+ {t:'Калмыцкая народная мелодия (домбра)',s:'media/audio/kalmyk.mp3'},
+ {t:'Русские народные частушки (хор)',s:'media/audio/russkie-chastushki.mp3'},
+ {t:'Адыгская лезгинка (инструментал)',s:'media/audio/adygea-lezginka.mp3'},
+ {t:'Греческие песни Приазовья',s:'media/audio/greki-priazovya.mp3'}];
+const pl=document.getElementById('playlist'),ap=document.getElementById('audioPlayer');
+ap.preload='none';
+let curTrack=-1;
+const plBtns=[];
+function markTrack(i,playing){plBtns.forEach((x,k)=>{x.classList.toggle('on',k===i);x.lastElementChild.textContent=(k===i&&playing)?'⏸':'▶'});}
+function playTrack(i){
+ if(i===curTrack){ap.paused?ap.play().catch(()=>{}):ap.pause();return;}
+ curTrack=i;ap.src=tracks[i].s;markTrack(i,true);
+ ap.play().catch(()=>{markTrack(i,false);toast('Не удалось воспроизвести аудиофайл');});
+}
+tracks.forEach((tr,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML=`<span>${i+1}. ${tr.t}</span><span aria-hidden="true">▶</span>`;
+ b.onclick=()=>playTrack(i);pl.appendChild(b);plBtns.push(b)});
+ap.addEventListener('play',()=>markTrack(curTrack,true));
+ap.addEventListener('pause',()=>markTrack(curTrack,false));
+ap.addEventListener('ended',()=>{if(curTrack<tracks.length-1)playTrack(curTrack+1);});
+ap.addEventListener('error',()=>{if(curTrack>=0)toast('Аудиофайл не найден: '+tracks[curTrack].s);});
+
+/* ---------- EVENTS ---------- */
+const events=[
+ {d:'2026-10-14',dd:'14 Окт',name:'Кинофестиваль «Золотой Саусруко»',type:'Фестиваль',city:'Майкоп',reg:'Адыгея',url:'https://sovetskaya-adygeya.ru/2026/10/07/raboty-kinematografistov-iz-shesti-stran-mira-pokazhut-na-festivale-zolotoj-sausruko-v-adygee/'},
+ {d:'2026-10-16',dd:'16 Окт',name:'Опера «Турандот»',type:'Концерт',city:'Ростов-на-Дону',reg:'Ростовская область',url:'https://rostov.mk.ru/social/2026/10/08/kuda-skhodit-po-pushkinskoy-karte-v-oktyabre-rekomendacii-petra-sholokhova.html'},
+ {d:'2026-10-16',dd:'16 Окт',name:'Аура Шоу. Главная музыка столетия',type:'Концерт',city:'Астрахань',reg:'Астраханская область',url:'https://afisha.yandex.ru/astrahan/concert/aura-shou-glavnaia-muzyka-stoletiia-novaia-programma?lon=46'},
+ {d:'2026-10-25',dd:'25 Окт',name:'Магия свечей. Шедевры мирового органа',type:'Концерт',city:'Ростов-на-Дону',reg:'Ростовская область',url:'https://rnd.kassir.ru/koncert/magiya-svechey-shedevryi-mirovogo-organa'},
+ {d:'2026-10-14',dd:'14 Окт',name:'Симфония MTV при свечах',type:'Концерт',city:'Астрахань',reg:'Астраханская область',url:'https://afisha.yandex.ru/astrahan/concert/places/filarmoniia-astrahan/schedule/october-2026'},
+ {d:'2026-11-06',dd:'06 Ноя',name:'Dead Blonde',type:'Концерт',city:'Краснодар',reg:'Краснодарский край',url:'https://vkevent.ru/event222562643/'},
+ {d:'2026-11-08',dd:'08 Ноя',name:'Mr. Credo и его Золотые Хиты',type:'Концерт',city:'Краснодар',reg:'Краснодарский край',url:'https://afisha-concert.ru/krasnodar/mr-credo-i-ego-zolotye-hity-08-11-2026'},
+ {d:'2026-11-24',dd:'24 Ноя',name:'Караоке с оркестром',type:'Концерт',city:'Краснодар',reg:'Краснодарский край',url:'https://afisha.yandex.ru/krasnodar/concert/karaoke-s-orkestrom-orchestra-of-new-time'},
+ {d:'2026-10-01',dd:'21 Сен-30 Окт',name:'«Капусткины вечерки» (народные традиции)',type:'Мастер-класс',city:'Астрахань',reg:'Астраханская область',url:'https://folc.ru/kapustkiny-vecherki-pogruzhenie-v-narodnye-traditsii-2/'}
+];
+const evBody=document.getElementById('evBody');
+function renderEvents(){
+ const r=document.getElementById('fRegion').value,t=document.getElementById('fType').value,d=document.getElementById('fDate').value;
+ const list=events.filter(e=>(!r||e.reg===r)&&(!t||e.type===t)&&(!d||e.d===d));
+ evBody.innerHTML=list.map(e=>`<tr>
+   <td class="ev-date" data-label="Дата">${e.dd}</td>
+   <td data-label="Название"><a class="ev-link" href="${e.url}" target="_blank" rel="noopener noreferrer" title="Открыть подробное описание мероприятия">${e.name}</a></td>
+   <td data-label="Формат">${e.type}</td>
+   <td data-label="Место">${e.city}</td>
+   <td data-label="Действие"><button type="button" class="btn btn-terra regBtn" data-ev="${e.name} (${e.dd}, ${e.city})" style="padding:8px 18px;font-size:13px">Зарегистрироваться</button></td>
+ </tr>`).join('');
+ document.getElementById('evEmpty').style.display=list.length?'none':'block';
+ evBody.querySelectorAll('.regBtn').forEach(b=>b.onclick=()=>openModal(b.dataset.ev));}
+['fRegion','fType','fDate'].forEach(id=>document.getElementById(id).onchange=renderEvents);
+document.getElementById('fReset').onclick=()=>{['fRegion','fType'].forEach(id=>document.getElementById(id).value='');document.getElementById('fDate').value='';renderEvents()};
+renderEvents();
+
+/* ---------- MODAL ---------- */
+const modal=document.getElementById('regModal');
+function openModal(name){
+  document.getElementById('regEventName').textContent=name;
+  document.getElementById('regLoadedAt').value=Date.now();
+  modal.classList.add('open');
+  document.getElementById('regName').focus();
+}
+document.getElementById('regClose').onclick=()=>modal.classList.remove('open');
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))modal.classList.remove('open')});
+
+/* ---------- TOAST + ФОРМЫ (с антиспам-защитой) ---------- */
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
+
+/* Инициализация времени загрузки */
+document.getElementById('cLoadedAt').value=Date.now();
+
+/* Универсальная проверка на бота */
+function isSpam(form){
+  const hp=form.querySelector('input[name="website"]');
+  if(hp&&hp.value.trim()!=='') return true;                       // honeypot сработал
+  const t=form.querySelector('input[name="formLoadedAt"]');
+  if(t&&Date.now()-Number(t.value)<2500) return true;             // слишком быстро
+  return false;
+}
+
+document.getElementById('regForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const form=e.target;
+  if(isSpam(form)){toast('Проверка не пройдена. Попробуйте позже.');return;}
+  if(!form.checkValidity()){form.reportValidity();return;}
+  modal.classList.remove('open');
+  form.reset();
+  toast('Заявка отправлена! Мы свяжемся с вами.');
+});
+
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const form=e.target;
+  if(isSpam(form)){toast('Проверка не пройдена. Попробуйте позже.');return;}
+  if(!form.checkValidity()){form.reportValidity();return;}
+  form.reset();
+  document.getElementById('cLoadedAt').value=Date.now();
+  toast('Сообщение отправлено. Спасибо за обращение!');
+});
+
+/* ---------- JSON-LD (структурированные данные для SEO) ---------- */
+const ld=document.createElement('script');
+ld.type='application/ld+json';
+ld.textContent=JSON.stringify({
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"Единство народов — сила России",
+  "url":"https://sit-salsk.ru/",
+  "description":"Интерактивный проект о культуре, традициях и событиях народов Южного федерального округа.",
+  "inLanguage":"ru-RU",
+  "publisher":{"@type":"Organization","name":"ГБПОУ РО «САТК»"}
+});
+document.head.appendChild(ld);
+</script>
+</body>
+</html>
