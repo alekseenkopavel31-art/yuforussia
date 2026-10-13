@@ -1,1 +1,0 @@
-Положите сюда файлы из media-checklist.html
